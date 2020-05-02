@@ -54,15 +54,9 @@
     border-radius: 10px;
     border-style: none;
     color: white;
+    
   }
-  .recupera {
-    font-size: 15px;
-    margin-top: 3em;
-    margin-bottom: 3em;
-  }
-  .aqui {
-    margin-top: 3em;
-  }
+  
   
   /* Responsive para celular */
   @media (max-width: 700px) {

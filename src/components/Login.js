@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
 
-    const [ email, setEmail] = useState(' ');
-    const [ password, setPassword ] = useState(' ');
+    const [ email, setEmail] = useState('');
+    const [ password, setPassword ] = useState('');
 
 
     const login = async (e) => {
@@ -43,15 +43,17 @@ const Login = () => {
                             />
                         </div>
                         <div className='btn-form'>
+                        <Link to='/home'>
                             <button type='submit' className='btn-login'>Iniciar Sesión</button>
+                        </Link>    
                         </div>
                         <div className='btn-form'>
                             <button className='btn-google'><i className="fab fa-google"></i> Google</button>
-                        </div>
+                        </div> 
                     </form>
-                    <a className='recupera'>¿Olvidaste tu contraseña? Recuperala aquí</a>
+                    <a style={{color: 'white'}} className='recupera'>¿Olvidaste tu contraseña? Recuperala aquí</a>
                     <Link to='/registrarse'>
-                    <a className='aqui'>Crea tu cuenta AQUI</a>
+                    <a style={{color: 'white'}} className='aqui'>Crea tu cuenta AQUI</a>
                     </Link>
 
                 </div>
