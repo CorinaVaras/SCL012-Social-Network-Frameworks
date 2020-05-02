@@ -1,8 +1,14 @@
 import React from 'react'
 import '../assets/styles/Navbar.css'
 import menu from '../assets/image/menuIcon.png'
+import { connect } from 'react-redux';
 
-const NavBar = () => {
+
+const NavBar = ({user}) => {
+
+    // console.log('El usuario está logeado ' + JSON.stringify(user));
+
+
     return (
         <>
         <label htmlFor="toggle">
@@ -13,10 +19,10 @@ const NavBar = () => {
         <div className='container-nav'> 
             <div className='item-perfil'>
             <i class="fas fa-user-circle"></i>  
-            <div style={{marginLeft: '10px'}}>Perfil</div>
+            <div style={{marginLeft: '10px'}}>{user.user.email}</div>
             </div>
 
-            <div className='item-salir'>
+            <div className='item-salir'> 
             <i class="fas fa-sign-out-alt"></i>      
             <div style={{marginLeft: '10px'}}>Cerrar sesión</div>
             </div>
@@ -25,4 +31,11 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+
+const MapStateToProps = state => {
+    return { user : state.user}
+}
+
+export default connect(MapStateToProps, null)(NavBar);
+
+
