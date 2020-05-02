@@ -1,24 +1,60 @@
-.container-nav{
-    display: flex;
-    justify-content: flex-end;
+.container-nav {
+  display: flex;
+  justify-content: flex-end;
+  background-color: teal;
+  height: 5em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.item-perfil {
+  font-size: 20px;
+  margin-right: 2em;
+  display: flex;
+  align-self: center;
+  align-items: center;
+}
+
+.item-salir {
+  font-size: 20px;
+  margin-right: 2em;
+  display: flex;
+  align-self: center;
+  align-items: center;
+}
+
+label {
+  display: none;
+}
+
+#toggle {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  label {
+    display: block;
     background-color: teal;
-    height: 5em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+    margin: 0px;
+    height: 3rem;
+  }
 
-.item-perfil{
-    font-size: 20px;
-    margin-right: 2em;
-    display: flex;
-    align-self: center;
-    align-items: center;
-}
+  #toggle:checked ~ .container-nav {
+    display: block;
+    margin: 0;
+    background-color: rgba(000, 000,000, 0.2);
+    padding: 10px;
+  }
 
-.item-salir{
-    font-size: 20px;
-    margin-right: 2em;
-    display: flex;
-    align-self: center;
-    align-items: center;
-}
+  .container-nav {
+    display: none;
+    height: 7em;
+  }
 
+  .item-perfil {
+    margin-top: 10px;
+  }
+  
+  .item-salir {
+      margin-top: 10px;
+  }
+}

@@ -1,8 +1,15 @@
 import React from 'react'
 import '../assets/styles/Navbar.css'
+import menu from '../assets/image/menuIcon.png'
 
 const NavBar = () => {
     return (
+        <>
+        <label htmlFor="toggle">
+            <img style={{ width: "45px", height: "45px" }} alt="menuIcon" src={menu}/>
+         </label>
+        <input type="checkbox" id="toggle" />
+
         <div className='container-nav'> 
             <div className='item-perfil'>
             <i class="fas fa-user-circle"></i>  
@@ -14,6 +21,7 @@ const NavBar = () => {
             <div>Cerrar sesión</div>
             </div>
         </div>
+        </>
     )
 }
 
