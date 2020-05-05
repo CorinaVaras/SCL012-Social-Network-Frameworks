@@ -32,11 +32,7 @@ const NavBar = ({user}) => {
         <input type="checkbox" id="toggle" />
 
         <div className='container-nav'> 
-            <div className='item-perfil'>
-            <i class="fas fa-user-circle"></i>  
-            <div style={{marginLeft: '10px'}}>{user.user.email}</div>
-            </div>
-
+            
             <div className='item-salir'> 
             <i onClick={() => closeSession()} class="fas fa-sign-out-alt"></i>      
             {/* <div style={{marginLeft: '10px'}}>Cerrar sesión</div> */}

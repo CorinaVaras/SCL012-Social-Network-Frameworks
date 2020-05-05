@@ -7,12 +7,14 @@ const Home = () => {
         <>
             <Navbar />
             <div className='container-home'>
-            <div className='container-box'>
-            <textarea className='input-post'type='text'/>
-            <div className='container-btn'>
-            <button className='btn-post'>Publicar</button>
-            </div>
-            </div>
+
+                <i class="far fa-user-circle" style={{fontSize: '40px'}}></i>  
+
+                <div className='colum-post-btn'>
+                    <input type="text" placeholder='¿Qué estas pensado?'/>
+                </div>    
+                  
+            
             </div>
         </>
     )
@@ -20,3 +22,9 @@ const Home = () => {
 
 export default Home
 
+{/* <div className='container-box'>
+            <input className='input-post' type='text'/>
+            <div className='container-btn'>
+            <button className='btn-post'>Publicar</button>
+            </div>
+            </div> */}
