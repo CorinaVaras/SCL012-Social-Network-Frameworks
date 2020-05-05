@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 import { firebase } from '../firebase-config'
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
 
     const [ email, setEmail] = useState('');
     const [ password, setPassword ] = useState('');
     const [ name, setName ] = useState('');
+
+    const history = useHistory();
     
     const signIn = async (e) => {
         e.preventDefault()
-        await firebase.auth().createUserWithEmailAndPassword(email, password);
-        console.log('se registró un nuevo usuario')
+        await firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((res) => {
+            console.log('se registró un nuevo usuario')
+            history.push('/home')
+          })
+
+        
     }
 
     return (

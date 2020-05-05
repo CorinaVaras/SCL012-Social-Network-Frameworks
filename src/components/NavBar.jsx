@@ -2,11 +2,26 @@ import React from 'react'
 import '../assets/styles/Navbar.css'
 import menu from '../assets/image/menuIcon.png'
 import { connect } from 'react-redux';
+import { auth } from "../firebase-config";
+import { useHistory } from "react-router-dom";
 
 
 const NavBar = ({user}) => {
 
-    // console.log('El usuario está logeado ' + JSON.stringify(user));
+    
+   const history = useHistory();
+   
+    const closeSession = () => {
+        auth.signOut()
+        .then(() => {
+            console.log('Saliendo');
+            history.push("/")
+            
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    };
 
 
     return (
@@ -23,8 +38,8 @@ const NavBar = ({user}) => {
             </div>
 
             <div className='item-salir'> 
-            <i class="fas fa-sign-out-alt"></i>      
-            <div style={{marginLeft: '10px'}}>Cerrar sesión</div>
+            <i onClick={() => closeSession()} class="fas fa-sign-out-alt"></i>      
+            {/* <div style={{marginLeft: '10px'}}>Cerrar sesión</div> */}
             </div>
         </div>
         </>

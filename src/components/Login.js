@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../assets/styles/Login.css";
-import { firebase } from "../firebase-config";
+import { firebase, auth } from "../firebase-config";
 import { Link, useHistory } from "react-router-dom";
 import { connect } from 'react-redux';
 import { setUser } from '../actions/index';
@@ -15,22 +15,33 @@ const Login = ({setUser}) => {
 
   const login = async (e) => {
     e.preventDefault();
-    await firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
+    await firebase.auth().signInWithEmailAndPassword(email, password)
       .then((res) => {
-        // console.log("Se inició correctamente " + JSON.stringify(res));
         setUser({
             user: res
         })
-
+        console.log(JSON.stringify(res))
         history.push('/home')
       })
       .catch((err) => {
         console.log("Error al iniciar sesión " + err);
       });
 
-    
+  };
+
+  const signUpGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+  
+    auth.signInWithPopup(provider)
+    .then((result) => {
+      setUser({
+        user: result
+    })
+      history.push('/home')
+    })
+    .catch((error) => {
+      console.log('>>>error al logearse con google<<< ' + error)
+    });
   };
 
   return (
@@ -43,7 +54,7 @@ const Login = ({setUser}) => {
               className="input-login"
               type="email"
               placeholder="Usuario o correo electrónico"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
               value={email}
             />
           </div>
@@ -52,7 +63,7 @@ const Login = ({setUser}) => {
               className="input-login"
               type="password"
               placeholder="Contraseña"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={e => setPassword(e.target.value)}
               value={password}
             />
           </div>
@@ -62,16 +73,16 @@ const Login = ({setUser}) => {
             </button>
           </div>
           <div className="btn-form">
-            <button className="btn-google">
+            <button className="btn-google" onClick={signUpGoogle}>
               <i className="fab fa-google"></i> Google
             </button>
           </div>
         </form>
-        <a style={{ color: "white" }} className="recupera">
+        <a href='null' style={{ color: "white" }} className="recupera">
           ¿Olvidaste tu contraseña? Recuperala aquí
         </a>
         <Link to="/registrarse">
-          <a style={{ color: "white" }} className="aqui">
+          <a href='null' style={{ color: "white" }} className="aqui">
             Crea tu cuenta AQUI
           </a>
         </Link>
