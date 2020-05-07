@@ -1,12 +1,10 @@
 
 .container-login {
-  background-image: url(../image/fondo.jpg);
-  background-size: cover; /* Resize the background image to cover the entire container*/
   display: flex;
   justify-content: center;
   align-items: center;
   height: -webkit-fill-available;
-  padding-left: 25em;
+  
 }
 .title-login {
   color: white;
@@ -69,8 +67,6 @@ form {
 }
 
 /* Responsive para celular */
-@media (max-width: 700px) {
-  .container-login {
-    margin-left: 0px;
-  }
-}
+/* @media (max-width: 700px) {
+  
+} */

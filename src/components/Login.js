@@ -16,15 +16,19 @@ const Login = ({setUser}) => {
   const login = async (e) => {
     e.preventDefault();
     await firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((res) => {
-        setUser({
-            user: res
-        })
-        console.log(JSON.stringify(res))
+      .then(() => localStorage.setItem('user', JSON.stringify({
+      displayName : auth.currentUser.displayName,
+      email: auth.currentUser.email,
+      uid: auth.currentUser.uid,
+      emailVerified: auth.currentUser.emailVerified,
+      photoURL: auth.currentUser.photoURL})))    
+      .then((res) => { setUser({ user: res})
         history.push('/home')
       })
       .catch((err) => {
-        console.log("Error al iniciar sesión " + err);
+        const errorCode = err.code;
+        const errorMessage = err.message;
+        console.log(errorCode, errorMessage)
       });
 
   };
@@ -34,9 +38,11 @@ const Login = ({setUser}) => {
   
     auth.signInWithPopup(provider)
     .then((result) => {
+      // console.log(JSON.stringify(result))
       setUser({
-        user: result
+        user: result.user
     })
+         
       history.push('/home')
     })
     .catch((error) => {

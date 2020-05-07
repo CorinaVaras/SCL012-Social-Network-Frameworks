@@ -1,30 +1,31 @@
 import React from 'react'
 import '../assets/styles/Home.css'
 import Navbar from '../components/NavBar'
+import { connect } from 'react-redux';
+import { auth } from "../firebase-config";
+import { useHistory } from "react-router-dom";
+import perfil from '../assets/image/default_profile.jpg';
 
-const Home = () => {
+const Home = ({user}) => {
+
     return (
         <>
             <Navbar />
-            <div className='container-home'>
-
-                <i class="far fa-user-circle" style={{fontSize: '40px'}}></i>  
-
-                <div className='colum-post-btn'>
-                    <input type="text" placeholder='¿Qué estas pensado?'/>
-                </div>    
-                  
-            
+            <div className='photo-post'>
+             { user != null && user.photoURL != null   ? 
+                (<img alt='fotoperfil' src={user.photoURL}/>) : 
+                (<img alt='fotoperfil' src={perfil}/>)
+             } 
+             <input className='input-post' type="text" placeholder='¿Qué estás pensando?'/>
             </div>
+           
         </>
     )
 }
 
-export default Home
+const MapStateToProps = state => {
+    return { user : state.user}
+}
 
-{/* <div className='container-box'>
-            <input className='input-post' type='text'/>
-            <div className='container-btn'>
-            <button className='btn-post'>Publicar</button>
-            </div>
-            </div> */}
+export default connect(MapStateToProps, null)(Home);
+
