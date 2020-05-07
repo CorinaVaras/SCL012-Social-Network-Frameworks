@@ -16,12 +16,6 @@ const Login = ({setUser}) => {
   const login = async (e) => {
     e.preventDefault();
     await firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(() => localStorage.setItem('user', JSON.stringify({
-      displayName : auth.currentUser.displayName,
-      email: auth.currentUser.email,
-      uid: auth.currentUser.uid,
-      emailVerified: auth.currentUser.emailVerified,
-      photoURL: auth.currentUser.photoURL})))    
       .then((res) => { setUser({ user: res})
         history.push('/home')
       })
@@ -38,15 +32,13 @@ const Login = ({setUser}) => {
   
     auth.signInWithPopup(provider)
     .then((result) => {
-      // console.log(JSON.stringify(result))
-      setUser({
-        user: result.user
-    })
-         
+      setUser({ user: result.user })
       history.push('/home')
     })
-    .catch((error) => {
-      console.log('>>>error al logearse con google<<< ' + error)
+    .catch((err) => {
+      const errorCode = err.code;
+      const errorMessage = err.message;
+      console.log(errorCode, errorMessage)
     });
   };
 

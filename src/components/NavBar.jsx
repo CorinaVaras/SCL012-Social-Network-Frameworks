@@ -27,7 +27,7 @@ const NavBar = ({user}) => {
     return (
         <>
         <label htmlFor="toggle">
-            <img style={{ width: "45px", height: "45px" }} alt="menuIcon" src={menu}/>
+            <img style={{ width: "40px", height: "40px" }} alt="menuIcon" src={menu}/>
          </label>
         <input type="checkbox" id="toggle" />
 
