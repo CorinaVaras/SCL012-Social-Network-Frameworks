@@ -1,9 +1,12 @@
 .container-nav {
   display: flex;
   justify-content: flex-end;
-  background-color: teal;
+  background: #ed8857;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
   height: 5em;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: fixed;
+  width: 100%;
 }
 
 .item-perfil {
@@ -15,12 +18,27 @@
 }
 
 .item-salir {
-  font-size: 20px;
-  margin-right: 2em;
+  font-size: 21px;
+  margin-right: 1em;
   display: flex;
-  align-self: center;
   align-items: center;
+  color: white;
+  padding: 10px;
 }
+.item-salir:hover{
+  background-color: #ed8857;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+
+}
+.item-salir p{
+  margin: 0px;
+  margin-right: 1em;
+}
+.salir{
+  font-size: 1.5em;
+}
+
+
 
 label {
   display: none;

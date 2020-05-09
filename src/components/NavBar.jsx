@@ -33,8 +33,9 @@ const NavBar = ({user}) => {
 
         <div className='container-nav'> 
             
-            <div className='item-salir'> 
-            <i onClick={() => closeSession()} className="fas fa-sign-out-alt"></i>      
+            <div onClick={() => closeSession()} className='item-salir'> 
+            <p>Cerrar Sesión</p>
+            <i className="fas fa-sign-out-alt salir"></i>      
             </div>
         </div>
         </>
