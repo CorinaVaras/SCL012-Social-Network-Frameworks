@@ -46,7 +46,7 @@ const Login = ({setUser}) => {
   return (
     <div className="container-login">
       <div className="container-form">
-        <h1 className="title-login">Iniciar Sesión</h1>
+        <h1 className="title-login">Makeup Colors </h1>
         <form onSubmit={login}>
           <div className="input-form">
             <input
@@ -77,13 +77,13 @@ const Login = ({setUser}) => {
             </button>
           </div>
         </form>
-        <a href='null' style={{ color: "white" }} className="recupera">
+        {/* <a href='null' style={{ color: "white" }} className="recupera">
           ¿Olvidaste tu contraseña? Recuperala aquí
-        </a>
+        </a> */}
         <Link to="/registrarse">
-          <a href='null' style={{ color: "white" }} className="aqui">
-            Crea tu cuenta AQUI
-          </a>
+          <div className='aqui'>
+          <a href='null'  className="aqui">Crea tu cuenta AQUI</a>
+          </div>
         </Link>
       </div>
     </div>

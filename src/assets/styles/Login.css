@@ -1,13 +1,16 @@
 
+
 .container-login {
   display: flex;
   justify-content: center;
   align-items: center;
   height: -webkit-fill-available;
+  background-image: url(../image/makeup1.jpg);
+  background-size: cover;
   
 }
 .title-login {
-  color: white;
+  color: #964f4e;
   margin-top: 1em;
   font-size: 32px;
 }
@@ -17,8 +20,7 @@
   flex-direction: column;
   align-items: center;
   width: 23em;
-  background-color: rgba(000, 000, 000, 0.4);
-  height: 27em;
+  /* background-color: rgba(000, 000, 000, 0.4); */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
 }
@@ -29,6 +31,7 @@ form {
   flex-direction: column;
   justify-content: center;
   margin-top: 1em;
+  margin-bottom: 2em;
 }
 
 .input-form {
@@ -45,7 +48,7 @@ form {
   padding: 5px;
 }
 .btn-google {
-  background-color: #fa3c40;
+  background-color: #ec6d84;
   width: 10em;
   height: 2em;
   border-radius: 10px;
@@ -55,15 +58,14 @@ form {
 .btn-login {
   width: 10em;
   height: 2em;
-  background: #ed8857;
+  background: #dbaf94;
   border-radius: 10px;
   border-style: none;
   color: white;
 }
-.recupera {
-  font-size: 17px;
-  margin-top: 2em;
-  margin-bottom: 2em;
+.aqui{
+  color: #5e505b;
+  margin-bottom: 10px; 
 }
 
 /* Responsive para celular */

@@ -22,7 +22,7 @@
 .username {
     font-size: 16px;
     font-weight: bold;
-    color: #ed8857;
+    color: #964f4e;
     font-family: 'Open Sans', sans-serif;
 }
 .dateStamp {
@@ -46,7 +46,7 @@
        margin-right: 5px;
 }
 .like:hover{
-    color: #ed8857;
+    color: #964f4e;
     
 }
 hr {
