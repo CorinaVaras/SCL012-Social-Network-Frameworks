@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { db } from '../firebase-config';
 import { setPosts } from '../actions/index';
 import { connect } from 'react-redux';
-import perfil from '../assets/image/default_profile.jpg';
 import '../assets/styles/Writepost.css'
 
 const Writepost = ({posts, user, setPosts}) => {
 
     const [inputPost, setInputPost ] = useState('')
+    
     const agregar = async () => {
         try{ 
             const newPost = {

@@ -1,10 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import perfil from "../assets/image/default_profile.jpg";
-
-// import borrar from "../assets/image/delete.svg";
-// import editar from "../assets/image/editar.svg";
-// import { db } from "../firebase-config";
 import { setPosts } from "../actions/index";
 import "../assets/styles/Readpost.css";
 
@@ -13,9 +9,8 @@ const Readpost = ({ posts }) => {
   return (
     <div>
       {posts.map((item) => (
-        <div className='container-post'>
-
-         <div className="photo-post" key={item.id}>
+        <div key={item.id}>
+         <div>
           <div className="input-read" type="text">
             <div className="header-post">
                    

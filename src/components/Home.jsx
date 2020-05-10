@@ -7,7 +7,7 @@ import Writepost from "./Writepost";
 import { db } from '../firebase-config';
 import '../assets/styles/Home.css'
 import publicidad from '../assets/image/off.png'
-import publicidad2 from '../assets/image/off2.png'
+
 
 const Home = ({setPosts}) => {
 
@@ -48,10 +48,7 @@ const Home = ({setPosts}) => {
               <p style={{ fontWeight: '500', color: 'gray', marginBottom: '20px'}}>Publicidad</p> 
               <p style={{fontSize: '15px', color:'gray'}}>Crear un anuncio</p>
             </div>
-            <img style={{width: '250px', height: '250px', margin: '10px'}}src={publicidad}/>
-            {/* <img style={{width: '290px', height: '250px', margin: '10px'}}src={publicidad2}/> */}
-             
-            
+            <img alt='publicidad' style={{width: '250px', height: '250px', margin: '10px'}}src={publicidad}/>
           </div>
         </div>
       </div>

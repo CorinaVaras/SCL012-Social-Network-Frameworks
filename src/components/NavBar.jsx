@@ -1,6 +1,5 @@
 import React from 'react'
 import '../assets/styles/Navbar.css'
-import menu from '../assets/image/menuIcon.png'
 import { connect } from 'react-redux';
 import { auth } from "../firebase-config";
 import { useHistory } from "react-router-dom";
