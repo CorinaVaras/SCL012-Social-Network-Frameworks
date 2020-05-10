@@ -33,6 +33,7 @@ const Login = ({setUser}) => {
     auth.signInWithPopup(provider)
     .then((result) => {
       setUser({ user: result.user })
+      console.log(JSON.stringify(result))
       history.push('/home')
     })
     .catch((err) => {

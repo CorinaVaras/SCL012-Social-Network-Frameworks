@@ -4,6 +4,7 @@ import menu from '../assets/image/menuIcon.png'
 import { connect } from 'react-redux';
 import { auth } from "../firebase-config";
 import { useHistory } from "react-router-dom";
+import perfil from "../assets/image/default_profile.jpg";
 
 
 const NavBar = ({user}) => {
@@ -26,17 +27,16 @@ const NavBar = ({user}) => {
 
     return (
         <>
-        <label htmlFor="toggle">
-            <img style={{ width: "40px", height: "40px" }} alt="menuIcon" src={menu}/>
-         </label>
-        <input type="checkbox" id="toggle" />
-
         <div className='container-nav'> 
             
-            <div onClick={() => closeSession()} className='item-salir'> 
-            <p>Cerrar Sesión</p>
-            <i className="fas fa-sign-out-alt salir"></i>      
+            <div className='dropdown'> 
+             <img className="photo-post-img dropbtn" alt="fotoperfil" src={perfil} />     
+            <div className='dropdown-content'>
+                <a>Ver mi perfil</a>
+                <a onClick={() => closeSession()} >Cerrar Sesión</a>
             </div>
+            </div>
+            
         </div>
         </>
     )

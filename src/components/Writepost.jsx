@@ -3,6 +3,7 @@ import { db } from '../firebase-config';
 import { setPosts } from '../actions/index';
 import { connect } from 'react-redux';
 import perfil from '../assets/image/default_profile.jpg';
+import '../assets/styles/Writepost.css'
 
 const Writepost = ({posts, user, setPosts}) => {
 
@@ -28,16 +29,15 @@ const Writepost = ({posts, user, setPosts}) => {
             const errorMessage = err.message;
             console.log(errorCode, errorMessage)
           };
-          
     }
 
     return (
             <div className='container-post'> 
                 <div className='photo-post'>
-                    { user != null && user.photoURL != null   ? 
-                        (<img alt='fotoperfil' src={user.photoURL}/>) : 
-                        (<img alt='fotoperfil' src={perfil}/>)
-                    } 
+                    {/* { user != null && user.photoURL != null   ? 
+                        (<img className='photo-post-img' alt='fotoperfil' src={user.photoURL}/>) : 
+                        (<img className='photo-post-img' alt='fotoperfil' src={perfil}/>)
+                    }  */}
                     <textarea className='input-post' type="text" onChange={ e => setInputPost(e.target.value)} value={inputPost} placeholder='¿Qué estás pensando?'/> 
                 </div>
                 <div className='publicar'>
