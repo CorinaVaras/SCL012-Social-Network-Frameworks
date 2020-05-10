@@ -14,7 +14,9 @@ const NavBar = ({user}) => {
    
     const closeSession = () => {
         auth.signOut()
+        
         .then(() => {
+            
             console.log('Saliendo');
             history.push("/")
             
@@ -30,7 +32,15 @@ const NavBar = ({user}) => {
         <div className='container-nav'> 
             
             <div className='dropdown'> 
-             <img className="photo-post-img dropbtn" alt="fotoperfil" src={perfil} />     
+            {user.photoURL != null ? (
+                <img
+                  className="photo-post-img"
+                  alt="fotoperfil"
+                  src={user.photoURL}
+                />
+              ) : (
+                <img className="photo-post-img" alt="fotoperfil" src={perfil} />
+              )}     
             <div className='dropdown-content'>
                 <a>Ver mi perfil</a>
                 <a onClick={() => closeSession()} >Cerrar Sesión</a>

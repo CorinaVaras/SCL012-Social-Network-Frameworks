@@ -12,14 +12,18 @@ const Writepost = ({posts, user, setPosts}) => {
         try{ 
             const newPost = {
                 mensaje: inputPost,
-                fecha: Date.now()
+                fecha: Date.now(),
+                name: user.displayName,
+                photoURL: user.photoURL
             }
             const data = await db.collection('posts').add(newPost)
             
             setPosts({
                 posts:[
                          ...posts, 
-                        {...newPost, id: data.id}
+                        {...newPost, 
+                            id: data.id,
+                        }
                      ]
                     })
 
@@ -32,18 +36,16 @@ const Writepost = ({posts, user, setPosts}) => {
     }
 
     return (
+        <div style={{marginTop: '8em'}}>
             <div className='container-post'> 
-                <div className='photo-post'>
-                    {/* { user != null && user.photoURL != null   ? 
-                        (<img className='photo-post-img' alt='fotoperfil' src={user.photoURL}/>) : 
-                        (<img className='photo-post-img' alt='fotoperfil' src={perfil}/>)
-                    }  */}
+                
                     <textarea className='input-post' type="text" onChange={ e => setInputPost(e.target.value)} value={inputPost} placeholder='¿Qué estás pensando?'/> 
-                </div>
+                
                 <div className='publicar'>
-                    <p onClick={() => agregar()} >Publicar</p>
+                    <button onClick={() => agregar()}>Publicar</button>
                 </div>
             </div>
+        </div>    
     )
 }
 

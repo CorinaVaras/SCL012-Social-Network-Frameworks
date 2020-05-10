@@ -2,18 +2,21 @@
 .input-read{
     resize: none;
     justify-content: center;
-    width: 25em;
-    margin: 1em;
-    padding: 1em;
-    background-color: #f1f1f1;
-    border-radius: 0.5em;
-    margin-bottom: 5em;
+    width: 35em;
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
     
 }
+
 .header-post{
     display: flex;
-    justify-content: space-between;
-    height: 20px;
+    margin-bottom: 10px;
+}
+.name-date{
+    flex-direction: column;
+    display: flex;
+    margin-left: 10px;
 }
 .text-post{
     max-height: 10em;
@@ -31,16 +34,16 @@
 }
 .container-options{
     display: flex;
-    justify-content: flex-end;
     font-size: 13px;
     color: #555555;
+    align-items: center;
     
 }
 .container-like{
     display: flex;
-    color: #555555;
     align-items: center;
-    font-size: 14px;
+    font-size: 13px;
+    justify-content: space-between;
 }
 .like{
        margin-right: 5px;
@@ -51,7 +54,7 @@
 }
 hr {
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
 }
 
 .editar{

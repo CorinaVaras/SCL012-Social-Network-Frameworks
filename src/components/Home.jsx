@@ -5,14 +5,21 @@ import { setPosts } from "../actions/index";
 import Readpost from "./Readpost";
 import Writepost from "./Writepost";
 import { db } from '../firebase-config';
+import '../assets/styles/Home.css'
+import publicidad from '../assets/image/off.png'
+import publicidad2 from '../assets/image/off2.png'
 
-const Home = () => {
+const Home = ({setPosts}) => {
 
   const obtenerDatos = async () => {
     try {
       const data = await db.collection("posts").get();
-      const allData = data.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-
+      const allData = await data.docs.map((doc) => ({
+         id: doc.id,
+         name: doc.name,
+         photoURL: doc.photoURL, 
+         ...doc.data() }));
+      
       setPosts({
         posts: allData,
       });
@@ -27,8 +34,27 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <Writepost />
-      <Readpost />
+      <div className='home-row'>
+        <div className='column1'>
+        <p>colum 1</p>  
+        </div>  
+        <div className='muro'>
+          <Writepost />
+          <Readpost />
+        </div>
+        <div className='publicidad'>
+          <div className='contenido-publicidad'>
+            <div className='header-publidad'>
+              <p style={{ fontWeight: '500', color: 'gray', marginBottom: '20px'}}>Publicidad</p> 
+              <p style={{fontSize: '15px', color:'gray'}}>Crear un anuncio</p>
+            </div>
+            <img style={{width: '250px', height: '250px', margin: '10px'}}src={publicidad}/>
+            {/* <img style={{width: '290px', height: '250px', margin: '10px'}}src={publicidad2}/> */}
+             
+            
+          </div>
+        </div>
+      </div>
     </>
   );
 };
