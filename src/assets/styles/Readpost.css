@@ -19,7 +19,11 @@
     margin-left: 10px;
 }
 .text-post{
-    max-height: 10em;
+    resize: none;
+    width: 33em;
+    padding-left: 10px;
+    background-color: white;
+    border-style: none;
 }
 
 .username {
@@ -59,8 +63,14 @@ hr {
 
 .editar{
     margin-right: 5px;
+    margin-left: 5px;
     cursor: pointer;
 }
+.editar:hover{
+    color: #964f4e;
+   
+}
+
 p {
     margin: 0px;
 }

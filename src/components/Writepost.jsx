@@ -14,7 +14,8 @@ const Writepost = ({posts, user, setPosts}) => {
                 mensaje: inputPost,
                 fecha: Date.now(),
                 name: user.displayName,
-                photoURL: user.photoURL
+                photoURL: user.photoURL,
+                enableEdit: false,
             }
             const data = await db.collection('posts').add(newPost)
             

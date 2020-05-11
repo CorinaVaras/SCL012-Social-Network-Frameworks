@@ -20,6 +20,7 @@ const Home = ({setPosts}) => {
          id: doc.id,
          name: doc.name,
          photoURL: doc.photoURL, 
+         enableEdit:false,
          ...doc.data() }));
       
       setPosts({
