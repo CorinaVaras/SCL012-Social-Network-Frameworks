@@ -5,9 +5,10 @@ import { setPosts } from "../actions/index";
 import Readpost from "./Readpost";
 import Writepost from "./Writepost";
 import { db } from '../firebase-config';
-import '../assets/styles/Home.css'
-import publicidad from '../assets/image/off.png'
-import maho from '../assets/image/maho1.png'
+import '../assets/styles/Home.css';
+import publicidad from '../assets/image/off.png';
+import maho from '../assets/image/maho1.png';
+import marca from '../assets/image/marca2.png';
 
 
 const Home = ({setPosts}) => {
@@ -39,13 +40,10 @@ const Home = ({setPosts}) => {
         <div className='column1'>
           <div className='column-body'>
           <p style={{ fontWeight: '500', color: 'gray', marginBottom: '20px'}}>Marcas patrocinantes</p>
-          <div style={{display:'flex', justifyContent:'center'}}>
-          <img style={{width:'200px', height:'200px'}}src={maho}/>
-          </div>
-          
-          
-         
-         
+            <div style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
+            <img style={{width:'200px', height:'200px', marginBottom:'1em'}}src={maho}/>
+            <img style={{width:'250px', height:'200px'}}src={marca}/>
+            </div>
           </div> 
         </div>  
         <div className='muro'>
