@@ -16,6 +16,7 @@ const Writepost = ({posts, user, setPosts}) => {
                 name: user.displayName,
                 photoURL: user.photoURL,
                 enableEdit: false,
+                like: [],
             }
             const data = await db.collection('posts').add(newPost)
             

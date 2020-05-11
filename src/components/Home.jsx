@@ -21,6 +21,7 @@ const Home = ({setPosts}) => {
          name: doc.name,
          photoURL: doc.photoURL, 
          enableEdit:false,
+         like: [],
          ...doc.data() }));
       
       setPosts({

@@ -5,7 +5,7 @@ import { setPosts } from "../actions/index";
 import "../assets/styles/Readpost.css";
 import { db } from "../firebase-config";
 
-const Readpost = ({ posts, setPosts }) => {
+const Readpost = ({ posts, setPosts,user }) => {
 
 
   const eliminar = async (id) => {
@@ -20,13 +20,17 @@ const Readpost = ({ posts, setPosts }) => {
     }
   };
 
-    const edit = (id) => {
+  const edit = (id) => {
     let currentPost = [...posts];
     posts.map((item) => {
         if (id == item.id) {
           item.enableEdit = !item.enableEdit;
+
           if (item.enableEdit == false) {
-            item.mensaje = document.getElementById(id).value;
+            item.mensaje = document.getElementById(`mensaje-${id}`).value;
+            db.collection('posts').doc(item.id).update({ 
+              mensaje: item.mensaje,
+            });
           }
         } else {
           item.enableEdit = false;
@@ -35,9 +39,47 @@ const Readpost = ({ posts, setPosts }) => {
       setPosts({
         posts: currentPost,
       });
-    };
+  };
 
-  
+  const like = (item) => {
+    try {
+    if (item.like == null || item.like == '') {
+      item.like = [];
+    }
+
+    if (item.like.includes(user.email)) {
+      for (let i = 0; i < item.like.length; i++) {
+        if (item.like[i] === user.email) { // verifica si ya el usuario está en el array
+          item.like.splice(i, 1); // sentencia para eliminar un elemento de un array
+
+          db.collection('posts').doc(item.id).update({ // para actualizar el array
+            like: item.like,
+          });
+        }
+      }
+    } else {
+      item.like.push(user.email);
+      db.collection('posts').doc(item.id).update({
+        like: item.like,
+      });
+    }
+
+    let currentPost = [...posts];
+    currentPost.map((post) => {
+      if (item.id == posts.id) {
+        post = item
+      }
+    })
+
+    setPosts({
+      posts: currentPost,
+    })
+       
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       {posts.map((item) => (
@@ -67,7 +109,7 @@ const Readpost = ({ posts, setPosts }) => {
                 </div>
 
                 {item.enableEdit == true ? (
-                  <textarea id={item.id} className="text-post">
+                  <textarea id={`mensaje-${item.id}`} className="text-post">
                     {item.mensaje}
                   </textarea>
                 ) : (
@@ -76,14 +118,13 @@ const Readpost = ({ posts, setPosts }) => {
                 <hr />
                 <div className="container-like">
                   <div className="container-options">
+                <span id={`like-${item.id}`}>{item.like.length}</span>
                     <i className="fas fa-heart like"></i>
-                    <p>Me gusta</p>
+                    <p onClick={() => like(item)}>Me gusta</p>
                   </div>
                   <div className="container-options">
                     <p onClick={() => edit(item.id)} className="editar">Editar</p>|
-                    <p onClick={() => eliminar(item.id)} className="editar">
-                      Eliminar
-                    </p>
+                    <p onClick={() => eliminar(item.id)} className="editar">Eliminar</p>
                   </div>
                 </div>
               </div>
