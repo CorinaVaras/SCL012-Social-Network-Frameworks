@@ -59,6 +59,7 @@ hr {
 
 .editar{
     margin-right: 5px;
+    cursor: pointer;
 }
 p {
     margin: 0px;
