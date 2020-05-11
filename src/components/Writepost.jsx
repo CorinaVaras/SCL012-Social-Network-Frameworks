@@ -36,7 +36,7 @@ const Writepost = ({posts, user, setPosts}) => {
     }
 
     return (
-        <div style={{marginTop: '8em'}}>
+        <div style={{marginTop: '6em'}}>
             <div className='container-post'> 
                 
                     <textarea className='input-post' type="text" onChange={ e => setInputPost(e.target.value)} value={inputPost} placeholder='¿Qué estás pensando?'/> 

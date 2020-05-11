@@ -7,8 +7,22 @@
   width: 25%;
   background-color: #e9ebee;
   /* background-color: turquoise; */
+  display: flex;
+  justify-content: flex-end;
 }
 
+.column-body{
+  background-color: #ffffff;
+  /* background-color: #e9ebee; */
+  padding: 10px;
+  margin-top: 107px;
+  border-radius: 10px;
+  width: 90%;
+}
+.marcas{
+  font-size: large;
+  padding-bottom: 10px;
+}
 .muro {
     display: flex;
     flex-direction: column;
@@ -26,13 +40,10 @@
 }
 
 .publicidad {
-  height: 610px;
-  background-color: #e9ebee;
+  background-color: #e9ebee; 
   display: flex;
   flex-direction: column;
   width: 25%;
- 
-
 }
 .header-publidad {
   display: flex;
@@ -42,6 +53,7 @@
 .contenido-publicidad {
   background-color: #ffffff;
   padding: 10px;
-  margin: 8em 20px 10px 20px;
+  margin-top: 107px;
   border-radius: 10px;
+  width: 90%;
 }
