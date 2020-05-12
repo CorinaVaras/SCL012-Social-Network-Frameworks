@@ -29,7 +29,7 @@ const NavBar = ({user}) => {
     return (
         <>
         <div className='container-nav'> 
-            
+            <p>Makeup Colors</p>
             <div className='dropdown'> 
             {user.photoURL != null ? (
                 <img

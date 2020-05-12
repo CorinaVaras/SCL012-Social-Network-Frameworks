@@ -4,6 +4,8 @@ import perfil from "../assets/image/default_profile.jpg";
 import { setPosts } from "../actions/index";
 import "../assets/styles/Readpost.css";
 import { db } from "../firebase-config";
+import moment from 'moment';
+import 'moment/locale/es'
 
 const Readpost = ({ posts, setPosts,user }) => {
 
@@ -103,7 +105,7 @@ const Readpost = ({ posts, setPosts,user }) => {
                   )}
                   <div className="name-date">
                     <span className="username">{item.name}</span>
-                    <span className="dateStamp">Sábado, 9 de Mayo</span>
+                  <span className="dateStamp">{moment(item.fecha).format('LLL')}</span>
                   </div>
                   <div></div>
                 </div>
@@ -118,14 +120,18 @@ const Readpost = ({ posts, setPosts,user }) => {
                 <hr />
                 <div className="container-like">
                   <div className="container-options">
-                <span id={`like-${item.id}`}>{item.like.length}</span>
-                    <i className="fas fa-heart like"></i>
-                    <p onClick={() => like(item)}>Me gusta</p>
+                    <span id={`like-${item.id}`}>{item.like.length}</span>
+                    <i onClick={() => like(item)} className="fas fa-heart like"></i>
                   </div>
-                  <div className="container-options">
-                    <p onClick={() => edit(item.id)} className="editar">Editar</p>|
-                    <p onClick={() => eliminar(item.id)} className="editar">Eliminar</p>
-                  </div>
+                  {
+                    item.email === user.email ? (
+                      <div className="container-options">
+                        <p onClick={() => edit(item.id)} className="editar">Editar</p>|
+                        <p onClick={() => eliminar(item.id)} className="editar">Eliminar</p>
+                      </div>
+                    ) : (
+                      null
+                    )}
                 </div>
               </div>
             </div>

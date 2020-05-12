@@ -1,26 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap');
+
 .container-nav {
   display: flex;
-  justify-content: flex-end;
-  background: #964f4e;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #964f4e;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
   height: 5em;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   position: fixed;
   width: 100%;
 }
-
-.item-perfil {
-  font-size: 20px;
-  margin-right: 2em;
-  display: flex;
-  align-self: center;
-  align-items: center;
+.container-nav p {
+  padding-left: 32px;
+  font-size: 30px;
+  color: white;
+  font-family: 'Libre Baskerville', serif;
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
-  padding: 1em;
+  padding: 32px;
 }
 .dropbtn {
   color: white;
@@ -52,5 +52,19 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+@media (max-width: 700px) {
+  .container-nav p {
+    font-size: 23px;
+    padding-left: 14px;
+  }
+
+  .dropdown {
+    padding: 15px;
+  }
+
+  
+
 }
 

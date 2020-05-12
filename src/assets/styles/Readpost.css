@@ -50,7 +50,7 @@
     justify-content: space-between;
 }
 .like{
-       margin-right: 5px;
+       margin-left: 5px;
 }
 .like:hover{
     color: #964f4e;
@@ -84,5 +84,11 @@ p {
         margin-left: 10px;
         padding-left: 5px;
     }
-
+    .input-read{
+        width: 22em;
+    }
+    .text-post{
+        width: 21em; 
+    }
+      
 }

@@ -9,6 +9,8 @@ import '../assets/styles/Home.css';
 import publicidad from '../assets/image/off.png';
 import maho from '../assets/image/maho1.png';
 import marca from '../assets/image/marca2.png';
+import moment from 'moment';
+import 'moment/locale/es'
 
 
 const Home = ({setPosts}) => {
@@ -16,12 +18,15 @@ const Home = ({setPosts}) => {
   const obtenerDatos = async () => {
     try {
       const data = await db.collection("posts").get();
+
       const allData = await data.docs.map((doc) => ({
          id: doc.id,
          name: doc.name,
+         fecha: Date.now(),
          photoURL: doc.photoURL, 
          enableEdit:false,
          like: [],
+         email: doc.email,
          ...doc.data() }));
       
       setPosts({
