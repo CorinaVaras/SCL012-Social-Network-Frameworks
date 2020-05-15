@@ -30,7 +30,7 @@ const NavBar = ({user}) => {
     return (
         <>
         <div className='container-nav'> 
-            <img src={logo}/>
+            <img className='logo' src={logo}/>
             <div className='dropdown'> 
             {user.photoURL != null ? (
                 <img
