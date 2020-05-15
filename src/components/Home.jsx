@@ -17,7 +17,7 @@ const Home = ({setPosts}) => {
 
   const obtenerDatos = async () => {
     try {
-      const data = await db.collection("posts").get();
+      const data = await db.collection("posts").orderBy('fecha', 'desc').get();
 
       const allData = await data.docs.map((doc) => ({
          id: doc.id,
