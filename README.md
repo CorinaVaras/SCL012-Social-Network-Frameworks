@@ -6,4 +6,4 @@ Es una red social patrocinada por las marcas Maho Beauty y Tommy Mead grandes ic
 
 En este sitio podras compartir experiencias con productos relacionados a la belleza, tanto maquillajes como productos relacionados con el cuidado facial y el Skincare.
 
-## Interfaz 🖥️
+
