@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { firebase } from '../firebase-config'
+import React, { useState, useCallback } from 'react';
+import { auth } from '../firebase-config'
 import { useHistory } from "react-router-dom";
 
 const Register = () => {
@@ -26,17 +26,27 @@ const Register = () => {
             setError('Pasword debe tener 6 caracteres o más*')
             return
         }
-        setError(null);
-
-        await firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then((res) => {
-            console.log('se registró un nuevo usuario')
-            history.push('/')
-          })
-
-        
+        setError(null);  
+        register();
     }
 
+    const register = useCallback( async() => {
+        try {
+            const res = await auth.createUserWithEmailAndPassword(email, password)
+            console.log(res.user);
+            alert('Se ha creado correctamente tu cuenta!')
+            history.push('/')
+
+        } catch (error) {
+            if(error.code === 'auth/invalid-email'){
+                setError('Email no válido')
+            }
+            if(error.code === 'auth/email-already-in-use'){
+                setError('Email ya esta registrado')
+            }
+        }
+    }, [email, password]) 
+   
     return (
             <div className='container-login'> 
                 <div className='container-form'>
@@ -80,7 +90,7 @@ const Register = () => {
                             />
                         </div>
                         <div className='btn-form'>
-                            <button type='submit' className='btn-login'>Crear Cuenta</button>
+                            <button type='submit' onClick={() => register()} className='btn-login'>Crear Cuenta</button>
                         </div>
                         
                     </form>
