@@ -7,15 +7,31 @@ const Register = () => {
     const [ email, setEmail] = useState('');
     const [ password, setPassword ] = useState('');
     const [ name, setName ] = useState('');
+    const [ error, setError ] = useState(null);
 
     const history = useHistory();
     
     const signIn = async (e) => {
         e.preventDefault()
+
+        if(!email.trim()){
+            setError('Ingrese Email*')
+            return
+        }
+        if(!password.trim()){
+            setError('Ingrese password*')
+            return
+        }
+        if(!password.length < 6){
+            setError('Pasword debe tener 6 caracteres o más*')
+            return
+        }
+        setError(null);
+
         await firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((res) => {
             console.log('se registró un nuevo usuario')
-            history.push('/home')
+            history.push('/')
           })
 
         
@@ -26,6 +42,13 @@ const Register = () => {
                 <div className='container-form'>
                     <h1 className='title-login'>Crear Cuenta</h1>
                     <form onSubmit={signIn}>
+                        {
+                            error && (
+                                <div style={{color:'darkred'}}>
+                                    {error}
+                                </div>
+                            )
+                        }
                         
                         <div className='input-form'>
                             <input 
