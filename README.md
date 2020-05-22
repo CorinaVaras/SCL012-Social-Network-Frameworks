@@ -20,9 +20,9 @@ En este sitio podras compartir experiencias con productos relacionados a la bell
 - Flexbox
 
 
-<!-- ## Link de Deploy 🚀
+ ## Link de Deploy 🚀
 
-También puedes entrar al deploy en el siguiente [link](https://redsocial-makeup.web.app/) -->
+También puedes entrar al deploy en el siguiente [link](https://redsocial-makeup.web.app/)
 
 ## Autor
 > Diseñado y desarrollado por Corina Varas 
