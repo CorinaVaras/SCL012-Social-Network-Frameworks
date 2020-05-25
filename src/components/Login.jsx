@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import "../assets/styles/Login.css";
 import { firebase, auth } from "../firebase-config";
 import { Link, useHistory } from "react-router-dom";
-import { connect } from 'react-redux';
-import { setUser } from '../actions/index';
+import { connect } from "react-redux";
+import { setUser } from "../actions/index";
 
-
-
-const Login = ({setUser}) => {
+const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,32 +13,36 @@ const Login = ({setUser}) => {
 
   const login = async (e) => {
     e.preventDefault();
-    await firebase.auth().signInWithEmailAndPassword(email, password)
+    await firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
       .then((res) => {
-        setUser({ user: res.user })
-        history.push('/home')
+        setUser({ user: res.user });
+        localStorage.setItem("user", JSON.stringify(res.user));
+        history.push("/home");
       })
       .catch((err) => {
         const errorCode = err.code;
         const errorMessage = err.message;
-        console.log(errorCode, errorMessage)
+        console.log(errorCode, errorMessage);
       });
-
   };
 
   const signUpGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-  
-    auth.signInWithPopup(provider)
-    .then((result) => {
-      setUser({ user: result.user })
-      history.push('/home')
-    })
-    .catch((err) => {
-      const errorCode = err.code;
-      const errorMessage = err.message;
-      console.log(errorCode, errorMessage)
-    });
+
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        setUser({ user: result.user });
+        localStorage.setItem("user", JSON.stringify(result.user));
+        history.push("/home");
+      })
+      .catch((err) => {
+        const errorCode = err.code;
+        const errorMessage = err.message;
+        console.log(errorCode, errorMessage);
+      });
   };
 
   return (
@@ -53,7 +55,7 @@ const Login = ({setUser}) => {
               className="input-login"
               type="email"
               placeholder="Usuario o correo electrónico"
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
           </div>
@@ -62,7 +64,7 @@ const Login = ({setUser}) => {
               className="input-login"
               type="password"
               placeholder="Contraseña"
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
           </div>
@@ -81,8 +83,10 @@ const Login = ({setUser}) => {
           ¿Olvidaste tu contraseña? Recuperala aquí
         </a> */}
         <Link to="/registrarse">
-          <div className='aqui'>
-          <a href='null'  className="aqui">Crea tu cuenta AQUI</a>
+          <div className="aqui">
+            <a href="null" className="aqui">
+              Crea tu cuenta AQUI
+            </a>
           </div>
         </Link>
       </div>
@@ -90,10 +94,9 @@ const Login = ({setUser}) => {
   );
 };
 
-const MapStateToProps = state => {
-    return { user : state.user}
-}
-const MapDispatchToProps = { setUser }
+const MapStateToProps = (state) => {
+  return { user: state.user };
+};
+const MapDispatchToProps = { setUser };
 
 export default connect(MapStateToProps, MapDispatchToProps)(Login);
-
