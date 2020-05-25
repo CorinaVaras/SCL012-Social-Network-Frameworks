@@ -121,7 +121,7 @@ const Readpost = ({ posts, setPosts,user }) => {
                 <div className="container-like">
                   <div className="container-options">
                     <span id={`like-${item.id}`}>{item.like.length}</span>
-                    <i onClick={() => like(item)} className="fas fa-heart like"></i>
+                    <i onClick={() => like(item)} className="fas fa-heart like"></i>Me gusta
                   </div>
                   {
                     item.email === user.email ? (
