@@ -9,16 +9,18 @@ import "../assets/styles/Home.css";
 import publicidad from "../assets/image/off.png";
 import maho from "../assets/image/maho1.png";
 import marca from "../assets/image/marca2.png";
-import moment from "moment";
-import "moment/locale/es";
 import { setUser } from "../actions/index";
+
 
 const Home = ({ setPosts,setUser }) => {
 
-  if (localStorage.getItem("user")) {
-    let currentUser = localStorage.getItem("user");
-    setUser({ user: JSON.parse(currentUser) });
-  }
+  React.useEffect(() => {
+    if (localStorage.getItem("user")) {
+      let currentUser = localStorage.getItem("user");
+      setUser({ user: JSON.parse(currentUser) });
+    } 
+  }, [setUser])
+  
 
   const obtenerDatos = async () => {
     try {
@@ -64,10 +66,14 @@ const Home = ({ setPosts,setUser }) => {
               }}
             >
               <img
+                alt='Patrocinante Maho Beauty'
                 style={{ width: "200px", height: "200px", marginBottom: "1em" }}
                 src={maho}
               />
-              <img style={{ width: "250px", height: "200px" }} src={marca} />
+              <img 
+                alt='Patrocinante Tommy Mead beauty'
+                style={{ width: "250px", height: "200px" }} 
+                src={marca} />
             </div>
           </div>
         </div>

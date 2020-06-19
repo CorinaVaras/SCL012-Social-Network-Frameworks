@@ -45,7 +45,7 @@ const Register = () => {
                 setError('Email ya esta registrado')
             }
         }
-    }, [email, password]) 
+    }, [email, password, history]) 
    
     return (
             <div className='container-login'> 

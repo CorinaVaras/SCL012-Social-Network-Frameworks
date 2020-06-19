@@ -75,13 +75,11 @@ const Login = ({ setUser }) => {
           </div>
           <div className="btn-form">
             <button className="btn-google" onClick={signUpGoogle}>
-              <i className="fab fa-google"></i> Google
+              <i className="fab fa-google" ></i> Google
             </button>
           </div>
         </form>
-        {/* <a href='null' style={{ color: "white" }} className="recupera">
-          ¿Olvidaste tu contraseña? Recuperala aquí
-        </a> */}
+        
         <Link to="/registrarse">
           <div className="aqui">
             <a href="null" className="aqui">

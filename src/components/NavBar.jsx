@@ -30,7 +30,7 @@ const NavBar = ({user}) => {
     return (
         <>
         <div className='container-nav'> 
-            <img className='logo' src={logo}/>
+            <img className='logo' src={logo} alt='logo de make up colors'/>
             <div className='dropdown'> 
             {user.photoURL != null ? (
                 <img
@@ -42,8 +42,8 @@ const NavBar = ({user}) => {
                 <img className="photo-post-img" alt="fotoperfil" src={perfil} />
               )}     
             <div className='dropdown-content'>
-                <a>Ver mi perfil</a>
-                <a onClick={() => closeSession()} >Cerrar Sesión</a>
+                <button>Ver mi perfil</button>
+                <button onClick={() => closeSession()} >Cerrar Sesión</button>
             </div>
             </div>
             

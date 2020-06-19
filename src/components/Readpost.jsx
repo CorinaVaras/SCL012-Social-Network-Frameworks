@@ -24,11 +24,11 @@ const Readpost = ({ posts, setPosts,user }) => {
 
   const edit = (id) => {
     let currentPost = [...posts];
-    posts.map((item) => {
-        if (id == item.id) {
+    posts.forEach((item) => {
+        if (id === item.id) {
           item.enableEdit = !item.enableEdit;
 
-          if (item.enableEdit == false) {
+          if (item.enableEdit === false) {
             item.mensaje = document.getElementById(`mensaje-${id}`).value;
             db.collection('posts').doc(item.id).update({ 
               mensaje: item.mensaje,
@@ -45,7 +45,7 @@ const Readpost = ({ posts, setPosts,user }) => {
 
   const like = (item) => {
     try {
-    if (item.like == null || item.like == '') {
+    if (item.like === null || item.like === '') {
       item.like = [];
     }
 
@@ -67,8 +67,8 @@ const Readpost = ({ posts, setPosts,user }) => {
     }
 
     let currentPost = [...posts];
-    currentPost.map((post) => {
-      if (item.id == posts.id) {
+    currentPost.forEach((post) => {
+      if (item.id === posts.id) {
         post = item
       }
     })
@@ -110,7 +110,7 @@ const Readpost = ({ posts, setPosts,user }) => {
                   <div></div>
                 </div>
 
-                {item.enableEdit == true ? (
+                {item.enableEdit === true ? (
                   <textarea id={`mensaje-${item.id}`} className="text-post">
                     {item.mensaje}
                   </textarea>
