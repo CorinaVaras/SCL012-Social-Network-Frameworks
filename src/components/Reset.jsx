@@ -39,20 +39,20 @@ const Reset = () => {
     return (
         <div className="container-login">
       <div className="container-form">
-        <h1 className="title-login">Reiniciar contraseña</h1>
+        <h1 className="title-login">Reiniciar Contraseña</h1>
         <form onSubmit={resetPass}>
           <div className="input-form">
             <input
               className="input-login"
               type="email"
-              placeholder="Ingresa tu nueva contraseña"
+              placeholder="Ingresa tu correo"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
           </div>
           
           <div className="btn-form">
-            <button className="btn-login">Recuperar</button>
+            <button className="btn-login">Enviar</button>
           </div>
          
         </form>
