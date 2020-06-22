@@ -79,14 +79,13 @@ const Login = ({ setUser }) => {
             </button>
           </div>
         </form>
-        
         <Link to="/registrarse">
-          <div className="aqui">
-            <a href="null" className="aqui">
-              Crea tu cuenta AQUI
-            </a>
-          </div>
+        <button className='recoverPass-createAccount'>Crea tu cuenta AQUI</button>
         </Link>
+        <Link to="/reset">
+        <button className='recoverPass-createAccount'>Recuperar contraseña</button>
+        </Link>
+        
       </div>
     </div>
   );

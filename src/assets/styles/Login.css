@@ -49,26 +49,29 @@ form {
 }
 .btn-google {
   background-color: #ec6d84;
-  width: 10em;
+  width: 20em;
   height: 2em;
   border-radius: 10px;
   border-style: none;
   color: white;
 }
 .btn-login {
-  width: 10em;
+  width: 20em;
   height: 2em;
   background: #dbaf94;
   border-radius: 10px;
   border-style: none;
   color: white;
 }
-.aqui{
+.recoverPass-createAccount{
   color: #5e505b;
   margin-bottom: 10px; 
+  border: none;
+  background-color: transparent;
 }
 
-/* Responsive para celular */
-/* @media (max-width: 700px) {
-  
-} */
+.recoverPass-createAccount:hover{
+  color: #964f4e;
+}
+
+
