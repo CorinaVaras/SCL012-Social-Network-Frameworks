@@ -10,7 +10,7 @@ import 'moment/locale/es'
 const Readpost = ({ posts, setPosts,user }) => {
 
 
-  const eliminar = async (id) => {
+  const deletePost = async (id) => {
     try {
       await db.collection("posts").doc(id).delete();
       const arrayFiltrado = posts.filter((item) => item.id !== id);
@@ -127,7 +127,7 @@ const Readpost = ({ posts, setPosts,user }) => {
                     item.email === user.email ? (
                       <div className="container-options">
                         <p onClick={() => edit(item.id)} className="editar">Editar</p>|
-                        <p onClick={() => eliminar(item.id)} className="editar">Eliminar</p>
+                        <p onClick={() => deletePost(item.id)} className="editar">Eliminar</p>
                       </div>
                     ) : (
                       null

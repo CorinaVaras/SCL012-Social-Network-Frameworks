@@ -22,7 +22,7 @@ const Home = ({ setPosts,setUser }) => {
   }, [setUser])
   
 
-  const obtenerDatos = async () => {
+  const getData = async () => {
     try {
       const data = await db.collection("posts").orderBy("fecha", "desc").get();
 
@@ -45,7 +45,7 @@ const Home = ({ setPosts,setUser }) => {
     }
   };
 
-  obtenerDatos();
+  getData();
 
   return (
     <>
